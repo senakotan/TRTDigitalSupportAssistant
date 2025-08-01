@@ -13,10 +13,8 @@ DATA_PATH = ROOT_DIR / "TRTData_final.csv"
 
 
 def load_model_and_index():
-    model = SentenceTransformer("sentence-transformers/all-mpnet-base-v2")
-    
+    model = SentenceTransformer("all-MiniLM-L6-v2")
     df = pd.read_csv(DATA_PATH)
-    
     sorular = df["soru"].tolist()
     cevaplar = df["metin"].tolist()
     soru_embeddings = model.encode(sorular, convert_to_numpy=True)
@@ -32,10 +30,10 @@ client = AzureOpenAI(
     api_key=config.AZURE_API_KEY,
 )
 
-def get_relevant_context(user_question, top_k=1):
+def get_relevant_context(user_question, top_k=5):
     embed = embedding_model.encode([user_question])
     _, indices = faiss_index.search(embed, top_k)
-    return [cevaplar_listesi[i] for i in indices[0]][0]
+    return [cevaplar_listesi[i] for i in indices[0]]
 
 def generate_llm_answer(user_question, context):
     if not client:
