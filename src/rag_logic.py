@@ -9,7 +9,7 @@ from src import prompts
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).parent.parent 
-DATA_PATH = ROOT_DIR / "TRTData_final.csv"
+DATA_PATH = ROOT_DIR / "TRTDataset.csv"
 
 
 def load_model_and_index():
@@ -56,3 +56,4 @@ def generate_llm_answer(user_question, context):
         return response.choices[0].message.content.strip()
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Cevap üretilirken bir hata oluştu: {e}")
+
