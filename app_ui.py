@@ -27,7 +27,7 @@ def get_image_as_base64(file):
     except FileNotFoundError:
         return None
 
-st.set_page_config(layout="wide", page_title="TRT Bilgi Asistanı", page_icon="📺")
+st.set_page_config(layout="wide", page_title="TRT Dijital Destek Asistanı", page_icon="📺")
 
 IMG_PATH = "asistan.png"
 img_base64 = get_image_as_base64(IMG_PATH)
@@ -38,7 +38,7 @@ if img_base64:
             <div style='display: flex; align-items: center;'>
                 <img src="data:image/png;base64,{img_base64}" style="width: 60px; height: 60px; margin-right: 20px;">
                 <div>
-                    <h1 style='color: white; margin: 0;'>TRT Bilgi Asistanı</h1>
+                    <h1 style='color: white; margin: 0;'>TRT Dijital Destek Asistanı</h1>
                     <p style='color: #e0e0e0; margin: 0;'>TRT hakkında sorunu yaz, sana en uygun cevabı getireyim!</p>
                 </div>
             </div>
@@ -48,14 +48,14 @@ else:
     st.markdown("""
         <div style='background-color: #002147; padding: 25px 30px; border-radius: 12px; margin-bottom: 30px; max-width: 1000px; margin-left: auto; margin-right: auto; display: flex; align-items: center;'>
             <div style='display: flex; align-items: center;'>
-                <h1 style='color: white; margin: 0;'> TRT Bilgi Asistanı</h1>
+                <h1 style='color: white; margin: 0;'> TRT Dijital Destek Asistanı</h1>
                 <p style='color: #e0e0e0; margin: 0;'>TRT hakkında sorunu yaz, sana en uygun cevabı getireyim!</p>
             </div>
         </div>
     """, unsafe_allow_html=True)
 
 if "gecmis" not in st.session_state:
-    karsilama_mesaji = "Selam! Ben TRT Bilgi Asistanı. 🚀 Sana TRT'nin kanalları, dijital uygulamaları (Tabii, TRT İzle vb.), tarihi ve güncel projeleri gibi birçok konuda anında bilgi verebilirim. Merak ettiğin ne varsa, sorman yeterli!"
+    karsilama_mesaji = "Selam! Ben TRT Dijital Destek Asistanı. 🚀 Sana TRT'nin kanalları, dijital uygulamaları (Tabii, TRT İzle vb.), tarihi ve güncel projeleri gibi birçok konuda anında bilgi verebilirim. Merak ettiğin ne varsa, sorman yeterli!"
     st.session_state.gecmis = [("BOT_ACILIS", karsilama_mesaji)]
 
 for soru, cevap in st.session_state.gecmis:
@@ -132,6 +132,16 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+    <style>
+        [data-testid="stFormSubmitButton"] button {
+            background-color: #002147 !important;
+            color: white !important;
+            border: none;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 with st.form("soru_form", clear_on_submit=True):
     col1, col2 = st.columns([8, 1])
     with col1:
@@ -144,4 +154,5 @@ if gonder and soru.strip():
         final_answer = get_answer_from_api(soru)
         
         st.session_state.gecmis.append((soru, final_answer))
+
         st.rerun()
