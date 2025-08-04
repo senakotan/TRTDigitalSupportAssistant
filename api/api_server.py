@@ -9,7 +9,7 @@ class QuestionRequest(BaseModel):
 class AnswerResponse(BaseModel):
     answer: str
 
-app = FastAPI(title="TRT Bilgi Asistani API")
+app = FastAPI(title="TRT Dijital Destek Asistani API")
 
 @app.post("/ask", response_model=AnswerResponse)
 def ask_question(request: QuestionRequest):
@@ -20,4 +20,5 @@ def ask_question(request: QuestionRequest):
 
 @app.get("/")
 def root():
-    return {"message": "TRT Bilgi Asistani API Aktif"}
+    return {"message": "TRT Dijital Destek Asistani API Aktif"}
+
