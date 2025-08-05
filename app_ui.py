@@ -55,7 +55,7 @@ else:
     """, unsafe_allow_html=True)
 
 if "gecmis" not in st.session_state:
-    karsilama_mesaji = "Selam! Ben TRT Dijital Destek Asistanı. 🚀 Sana TRT'nin kanalları, dijital uygulamaları (Tabii, TRT İzle vb.), tarihi ve güncel projeleri gibi birçok konuda anında bilgi verebilirim. Merak ettiğin ne varsa, sorman yeterli!"
+    karsilama_mesaji = "Selam! Ben TRT Dijital Destek Asistanı. 🚀 Sana TRT'nin kanalları, dijital uygulamaları (Tabii, TRT Dinle vb.), tarihi ve güncel projeleri gibi birçok konuda anında bilgi verebilirim. Merak ettiğin ne varsa, sorman yeterli!"
     st.session_state.gecmis = [("BOT_ACILIS", karsilama_mesaji)]
 
 for soru, cevap in st.session_state.gecmis:
@@ -156,3 +156,4 @@ if gonder and soru.strip():
         st.session_state.gecmis.append((soru, final_answer))
 
         st.rerun()
+
