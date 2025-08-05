@@ -38,7 +38,7 @@ if img_base64:
             <div style='display: flex; align-items: center;'>
                 <img src="data:image/png;base64,{img_base64}" style="width: 60px; height: 60px; margin-right: 20px;">
                 <div>
-                    <h1 style='color: white; margin: 0;'>TRT Dijital Destek Asistanı</h1>
+                    <h1 style='color: white; margin: 0; font-size: 34px;'>TRT Dijital Destek Asistanı</h1>
                     <p style='color: #e0e0e0; margin: 0;'>TRT hakkında sorunu yaz, sana en uygun cevabı getireyim!</p>
                 </div>
             </div>
@@ -156,5 +156,6 @@ if gonder and soru.strip():
         st.session_state.gecmis.append((soru, final_answer))
 
         st.rerun()
+
 
 
