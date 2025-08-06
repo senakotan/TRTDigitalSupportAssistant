@@ -10,7 +10,7 @@ from pathlib import Path
 import logging
 
 ROOT_DIR = Path(__file__).parent.parent 
-DATA_PATH = ROOT_DIR / "TRTDataset.csv"
+DATA_PATH = ROOT_DIR / "TRTDataset_Guncel.csv"
 
 
 def load_model_and_index():
@@ -80,3 +80,4 @@ def log_user_interaction_with_logging(question: str, answer: str, log_file: str 
     )
     log_message = f"SORU: {question} | CEVAP DURUMU: {cevap_durumu}"
     logging.info(log_message)
+
