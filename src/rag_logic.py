@@ -7,6 +7,7 @@ from fastapi import HTTPException
 from config import config
 from src import prompts
 from pathlib import Path
+import logging
 
 ROOT_DIR = Path(__file__).parent.parent 
 DATA_PATH = ROOT_DIR / "TRTDataset.csv"
@@ -14,7 +15,9 @@ DATA_PATH = ROOT_DIR / "TRTDataset.csv"
 
 def load_model_and_index():
     model = SentenceTransformer("all-MiniLM-L6-v2")
+    
     df = pd.read_csv(DATA_PATH)
+    
     sorular = df["soru"].tolist()
     cevaplar = df["metin"].tolist()
     soru_embeddings = model.encode(sorular, convert_to_numpy=True)
@@ -24,16 +27,18 @@ def load_model_and_index():
 
 embedding_model, faiss_index, cevaplar_listesi = load_model_and_index()
 
-client = AzureOpenAI(
+client = AzureOpenAI( 
     api_version=config.AZURE_API_VERSION,
     azure_endpoint=config.AZURE_ENDPOINT,
     api_key=config.AZURE_API_KEY,
 )
 
+
 def get_relevant_context(user_question, top_k=5):
     embed = embedding_model.encode([user_question])
     _, indices = faiss_index.search(embed, top_k)
     return [cevaplar_listesi[i] for i in indices[0]]
+
 
 def generate_llm_answer(user_question, context):
     if not client:
@@ -53,7 +58,25 @@ def generate_llm_answer(user_question, context):
             temperature=0.7,
             max_tokens=800,
         )
-        return response.choices[0].message.content.strip()
+        final_answer = response.choices[0].message.content.strip()
+
+        log_user_interaction_with_logging(user_question, final_answer) 
+
+        return final_answer
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Cevap üretilirken bir hata oluştu: {e}")
 
+
+def log_user_interaction_with_logging(question: str, answer: str, log_file: str = "logs/app.log"):
+    failure_msg = "Ben bir TRT Dijital Destek Asistanıyım"
+    cevap_durumu = "cevap verilemedi" if failure_msg in answer else "cevap verildi"
+
+    logging.basicConfig(
+        filename=log_file,
+        level=logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s",
+        filemode="a", 
+        encoding="utf-8" 
+    )
+    log_message = f"SORU: {question} | CEVAP DURUMU: {cevap_durumu}"
+    logging.info(log_message)
