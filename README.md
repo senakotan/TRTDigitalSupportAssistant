@@ -62,7 +62,7 @@ User Question → Embedding → Semantic Search (FAISS) → Context → LLM → 
 ## 📷 UI Preview & Example Usage
 
 
-![](images/TrtDijitalDestekAsistani2.PNG)
+![](images/TrtDijitalDestekAsistani.PNG)
 
 ![](images/TrtDijitalDestekAsistani5.PNG)
 
