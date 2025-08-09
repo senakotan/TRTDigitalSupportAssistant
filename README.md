@@ -55,20 +55,20 @@ User Question → Embedding → Semantic Search (FAISS) → Context → LLM → 
 git clone https://github.com/username/trt-digital-support-assistant.git
 cd trt-digital-support-assistant
 
-2️⃣ Install Dependencies
+###2️⃣ Install Dependencies
 ```bash
 Kopyala
 Düzenle
 pip install -r requirements.txt
 
-3️⃣ Set Environment Variables
+###3️⃣ Set Environment Variables
 Create a .env file in the root directory and define:
 
 ```bash
 AZURE_OPENAI_API_KEY=your_api_key
 AZURE_OPENAI_ENDPOINT=your_endpoint
 
-5️⃣ Run the Streamlit Interface
+###5️⃣ Run the Streamlit Interface
 ```bash
 streamlit run app.py
 
