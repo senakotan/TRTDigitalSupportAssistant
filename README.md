@@ -64,6 +64,9 @@ User Question → Embedding → Semantic Search (FAISS) → Context → LLM → 
 
 ![](images/TrtDijitalDestekAsistani.PNG)
 
+
+---
+
 ![](images/TrtDijitalDestekAsistani5.PNG)
 
 
