@@ -29,53 +29,44 @@ User Question → Embedding → Semantic Search (FAISS) → Context → LLM → 
 ## ⚙️ System Architecture & Flow
 
 1. **Question Embedding**  
-   The user's question is transformed into a **dense vector representation** using **SentenceTransformers**, capturing semantic meaning rather than just keywords.
+   The user's question is transformed into a dense vector representation using SentenceTransformers, capturing semantic meaning rather than just keywords.
 
 2. **Semantic Search**  
-   The generated vector is compared against the corporate knowledge base stored in **FAISS** to find the **most semantically similar entries**.
+   The generated vector is compared against the corporate knowledge base stored in FAISS to find the most semantically similar entries.
 
 3. **Context Creation**  
-   Retrieved content is combined into a structured prompt, providing the **LLM** with the necessary background to craft a relevant and accurate response.
+   Retrieved content is combined into a structured prompt, providing the LLM with the necessary background to craft a relevant and accurate response.
 
 4. **Answer Generation**  
-   The **Azure OpenAI-powered LLM** generates a **human-like, contextually relevant answer**, preserving the corporate tone.
+   The Azure OpenAI-powered LLM generates a human-like, contextually relevant answer, preserving the corporate tone.
 
 5. **User Interface Presentation**  
-   The answer is displayed in a **Streamlit-powered chat interface**, optimized for intuitive interactions.
+   The answer is displayed in a Streamlit-powered chat interface, optimized for intuitive interactions.
 
 6. **Interaction Logging**  
-   All Q&A sessions are recorded via a logging system for **future evaluation, fine-tuning, and analytics**.
+   All Q&A sessions are recorded via a logging system for future evaluation, fine-tuning, and analytics.
 
 ---
-
-## 🚀 Installation & Setup
-
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/username/trt-digital-support-assistant.git
-cd trt-digital-support-assistant
-
-###2️⃣ Install Dependencies
-```bash
-Kopyala
-Düzenle
-pip install -r requirements.txt
-
-###3️⃣ Set Environment Variables
-Create a .env file in the root directory and define:
-
-```bash
-AZURE_OPENAI_API_KEY=your_api_key
-AZURE_OPENAI_ENDPOINT=your_endpoint
-
-###5️⃣ Run the Streamlit Interface
-```bash
-streamlit run app.py
 
 
 ## ✨ Project Outcomes
 
-- **Accurate Responses**: High-accuracy answers thanks to targeted content filtering  
-- **Corporate Context**: Contextual and consistent answers based on company-specific knowledge  
-- **Flexible Infrastructure**: A modular, reusable, and scalable RAG architecture  
-- **Enhanced User Experience**: A chat-based solution designed for real user interactions
+- **Accurate Responses** — High precision due to targeted content retrieval  
+- **Corporate Context** — Company-specific and consistent answers  
+- **Scalable Infrastructure** — Modular architecture ready for expansion  
+- **User-Friendly** — Chat-based design for real-world usability  
+- **Continuous Improvement** — Logging enables system refinement over time  
+
+---
+
+## 📷 Screenshots & UI Preview
+
+![](images/TrtDijitalDestekAsistani2.png)  
+![](images/TrtDijitalDestekAsistani3.png)  
+![](images/TrtDijitalDestekAsistani5.png)
+
+
+---
+
+
+
