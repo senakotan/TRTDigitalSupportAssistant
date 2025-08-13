@@ -159,3 +159,4 @@ if gonder and soru.strip():
 
 
 
+
