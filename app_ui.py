@@ -152,9 +152,7 @@ with st.form("soru_form", clear_on_submit=True):
 if gonder and soru.strip():
     with st.spinner("Cevabınız hazırlanıyor... ✨"):
         final_answer = get_answer_from_api(soru)
-        
         st.session_state.gecmis.append((soru, final_answer))
-
         st.rerun()
 
 
