@@ -7,7 +7,7 @@ By combining **semantic search**, **vector-based retrieval**, and **LLM-powered 
 
 ---
 
-## 🖼️ System Overview
+## System Overview
 
 User Question → Embedding → Semantic Search (FAISS) → Context → LLM → Answer → UI
 
