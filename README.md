@@ -1,4 +1,4 @@
-# 🎯 TRT Digital Support Assistant 
+# TRT Digital Support Assistant 
 
 This project is an **AI-powered smart support assistant** built on a **Retrieval-Augmented Generation (RAG)** architecture, developed specifically for **TRT's corporate knowledge base**.  
 The system **semantically analyzes** user questions in natural language and retrieves the most relevant internal content to generate **meaningful, context-aware answers** with the help of an **LLM (Large Language Model)**.
@@ -74,7 +74,7 @@ User Question → Embedding → Semantic Search (FAISS) → Context → LLM → 
 
 ---
 
-## 👩‍💻 Author
+## Author
 
 **Sena Kotan**  
 _Data Science & Machine Learning Intern at TRT_  
