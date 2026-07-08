@@ -13,7 +13,7 @@ User Question → Embedding → Semantic Search (FAISS) → Context → LLM → 
 
 ---
 
-## 🛠️ Key Technologies
+## Key Technologies
 
 - **Backend**: FastAPI  
 - **Vector Database**: FAISS  
@@ -26,7 +26,7 @@ User Question → Embedding → Semantic Search (FAISS) → Context → LLM → 
 
 ---
 
-## ⚙️ System Architecture & Flow
+## System Architecture & Flow
 
 1. **Question Embedding**  
    The user's question is transformed into a dense vector representation using SentenceTransformers, capturing semantic meaning rather than just keywords.
@@ -49,7 +49,7 @@ User Question → Embedding → Semantic Search (FAISS) → Context → LLM → 
 ---
 
 
-## ✨ Project Outcomes
+## Project Outcomes
 
 - **Accurate Responses** — High precision due to targeted content retrieval  
 - **Corporate Context** — Company-specific and consistent answers  
@@ -59,7 +59,7 @@ User Question → Embedding → Semantic Search (FAISS) → Context → LLM → 
 
 ---
 
-## 📷 UI Preview & Example Usage
+## UI Preview & Example Usage
 
 
 ![](images/TrtDijitalDestekAsistani.PNG)
