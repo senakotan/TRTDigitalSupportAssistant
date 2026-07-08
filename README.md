@@ -78,6 +78,6 @@ User Question → Embedding → Semantic Search (FAISS) → Context → LLM → 
 
 **Sena Kotan**  
 _Data Science & Machine Learning Intern at TRT_  
-📍 Fatih Sultan Mehmet Vakıf University — Electrical Elecronics & Computer Engineering  
+
 
 
